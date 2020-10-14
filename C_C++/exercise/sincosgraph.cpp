@@ -3,16 +3,24 @@
 using namespace std;
 int main()
 {
-    float y(0);
-    char graph[27][65] = {' '};
-    for (int i(0);i < 65;i ++)
-        graph[14][i] = '-';
+    int y(0);
+    char graph[27][65]{' '};
+    for (int i(0);i < 27;i ++)
+    {
+        for (int j(0);j < 65;j++)
+        {
+            if (i == 14)    
+                graph[i][j] = '-';
+            else
+                graph[i][j] = ' ';
+        }
+    }
     for (int x(0);x < 65;x ++)
     {
-        y = 13*sin(x) + 13;
-        graph[x][(int)y] = '-';
-        y = 13*cos(x) + 13;
-        graph[x][(int)y] = '-';
+        y = (int)(13.0*sin(x) + 13.0);
+        graph[x][y] = '*';
+        y = (int)(13.0*cos(x) + 13.0);
+        graph[x][y] = '*';
     }
     for (int i(27);i >= 0;i--)
     {
