@@ -9,7 +9,7 @@ int main()
     {
         for (int j(0);j < 27;j++)
         {
-            if (j == 14)
+            if (j == 13)
                 graph[i][j] = '-';
             else
                 graph[i][j] = ' ';
