@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 using namespace std;
 int arr[100]={0};
 void swap(int *pa,int *pb)

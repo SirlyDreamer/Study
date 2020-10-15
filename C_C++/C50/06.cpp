@@ -16,9 +16,9 @@ void QuickSort(int* arr,int* absarr,int left,int right)
     int abstemp = absarr[left];
     while (i != j)
     {
-        while (absarr[j] >= abstemp && i<j)
+        while (absarr[j] <= abstemp && i<j)
             j--;
-        while (absarr[i] <= abstemp && i<j)
+        while (absarr[i] >= abstemp && i<j)
             i++;
         if (i<j)
         {
@@ -55,7 +55,7 @@ int main()
     }while (n[i] != 0);
     for (int x(0) ; x < i ; x++)
     {
-        for (int y(0) ; y < n[i] ; y++)    
+        for (int y(0) ; y < n[x] ; y++)
             cout << arr[x][y] << ' ';
         cout << '\b' << endl;
     }
