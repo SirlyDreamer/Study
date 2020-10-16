@@ -1,0 +1,5 @@
+a = input("请输入第一个数:")
+a = int(a)
+b = input("请输入第二个数:")
+b = int(b)
+print("{} {} {}".format(a,b,(a+b)/2))
