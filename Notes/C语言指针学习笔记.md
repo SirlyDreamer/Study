@@ -24,7 +24,7 @@ void swap(int *pa, int *pb)
 int main()
 {
     int a = 1,b = 2;
-    printf("a = %d,b = %d\n",a,b);
+    printf("a = %d,b = %d\n",a,b);+-
     swap (&a,&b);
     printf("a = %d,b = %d\n",a,b);
     return 0;

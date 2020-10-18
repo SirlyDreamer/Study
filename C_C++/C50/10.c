@@ -38,4 +38,6 @@ int main()
         printf("%d",mavr[score]);
     for(int score = 0;score < m;score++)
         if (mavr[score][1])
+
+    scanf
 }

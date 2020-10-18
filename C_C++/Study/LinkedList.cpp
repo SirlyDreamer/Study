@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <cstdlib>
 using namespace std;
 struct node
@@ -26,6 +26,10 @@ void insertNode(int data,struct node *forward)
     temp1->data = data;
     temp1->next = forward->next;
     forward->next = temp1;
+}
+void deleteNode()
+{
+    //TO-DO
 }
 int main()
 {
