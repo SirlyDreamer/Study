@@ -92,5 +92,7 @@ int main()
         point = point->next;
     }
     deleteList(head);
+    head = NULL;
+    tail = NULL;
     return 0;
 }
