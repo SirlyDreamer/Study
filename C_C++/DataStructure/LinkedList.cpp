@@ -49,6 +49,25 @@ void deleteList(struct node* head)
     }
     return;
 }
+struct node* searchNode(struct node *head,int target)
+{
+    struct node *point = head;
+    while (point->next != NULL && point->data != target)
+        point = point->next;
+    if (point == tail)
+        return NULL;
+    else
+        return point;
+}
+void viewList(struct node* head)
+{
+    struct node *point = head;
+    while (point != NULL)
+    {
+        cout << point->data << ' ';
+        point = point->next;
+    }
+}
 int main()
 {
     for (int i=0;i<10;i++)
@@ -59,38 +78,28 @@ int main()
     struct node *point;
     point = head;
     cout << endl << "---------------------------------" << endl;
-    while (point != NULL)
-    {
-        cout << point->data << ' ';
-        point = point->next;
-    }
+    viewList(head);
     cout << endl << "---------------------------------" << endl;
-    int t;
+    cout << "Input a number to add." << endl;
+    int t(0);
     cin >> t;
-    point = head;
-    while (point->next != NULL && point->data < t)
-        point = point->next;
-    insertNode(t,point);
+    point = searchNode(head,t);
+    if (point == NULL)
+        insertNode(t,tail);
+    else
+        insertNode(t,point);
     cout << endl << "---------------------------------" << endl;
-    point = head;
-    while (point != NULL)
-    {
-        cout << point->data << ' ';
-        point = point->next;
-    }
+    viewList(head);
     cout << endl << "---------------------------------" << endl;
+    cout << "Input a number to delete." << endl;
     cin >> t;
-    point = head;
-    while (point->next != NULL && point->next->data != t)
-        point = point->next;
-    deleteNode(point,point->next);
+    point = searchNode(head,t);
+    if (point == NULL)
+        cout << "Node not found" << endl;
+    else
+        deleteNode(point,point->next);
     cout << endl << "---------------------------------" << endl;
-    point = head;
-    while (point != NULL)
-    {
-        cout << point->data << ' ';
-        point = point->next;
-    }
+    viewList(head);
     deleteList(head);
     head = NULL;
     tail = NULL;
