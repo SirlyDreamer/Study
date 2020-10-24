@@ -20,6 +20,24 @@
 |f或F|float, 6|p|指针|
 |e或E|指数|n|读入/写出的个数|
 
+### `scanf`的格式化输入
+`%[flag]type`
+|flag|含义|flag|含义|
+|:-:|-|:-:|-|
+|\*|跳过|l|long, double|
+|数字|最大字符数|ll|long long|
+|hh|char|L|long double|
+|h|short|
+
+
+|type|用于|type|用于|
+|:-:|-|:-:|-|
+|d|int|s|字符串|
+|i|整数，可能为十六进制或八进制|[...]|所允许的字符|
+|u|unsigned int|p|指针|
+|o|八进制|a,e,f,g|float|
+|x|十六进制|c|char|
+
 ## 1.输出重定向
 ``` powershell
 text.exe > data.out ##将程序text.exe的输出重定向到data.out
@@ -30,14 +48,15 @@ FILE类是一个结构体：定义如下：
 ``` C
 struct _iobuf
 {
-    char *_ptr;    //xia'y
-    int   _cnt;    //剩余的字符数
-    char *_base;    //
-    int   _flag;
-    int   _file;
-    int   _charbuf;
-    int   _bufsiz;
-    char *_tmpfname;
+    char *_ptr;         //文件输入的下一个位置
+    int   _cnt;         //当前缓冲区的相对位置
+    char *_base;        //文件的起始位置
+    int   _flag;        //文件标志
+    int   _file;        //文件的有效性验证
+    int   _charbuf;     //检查缓冲区状况，若无缓冲区则不读取
+    int   _bufsiz;      //文件的大小
+    char *_tmpfname;    //临时文件名
+
 };
 typedef struct _iobuf FILE;
 ```
@@ -61,17 +80,17 @@ typedef struct _iobuf FILE;
 
 * 标签  `b`  只在Windows操作系统上生效
 
-` int fclose( FILE *stream ); `
+`int fclose( FILE *stream ); `
 
-关闭指定的文件流，其中stream指针指向目标文件流
+关闭指定的文件流，其中`stream`指针指向目标文件流
 
-成功时返回0，失败时返回EOF
+成功时返回`0`，失败时返回`EOF`
 
-若在 fclose 返回后使用指针 stream 的值则行为未定义
+若在`fclose`返回后使用指针`stream`的值则行为未定义
 
 `size_t fread(void *restrict buffer,size_t size,size_t count,FILE *restrict stream);`
 
-从给定输入流 stream 读取至多 count 个对象到数组 buffer 中
+从给定输入流`stream`读取至多`count`个对象到数组`buffer`中
 
 |参数|作用|
 |-|-|
@@ -80,3 +99,6 @@ typedef struct _iobuf FILE;
 |count|要读取的对象数|
 |stream|读取来源的输入文件流|
 
+`int fscanf ( FILE * stream, const char * format, ... );`
+
+从流中读取数据，并根据参数格式将它们存储到其他参数指向的位置。
