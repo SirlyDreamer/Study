@@ -1,8 +1,11 @@
-#include <iostream>
+#include <cstdio>
 using namespace std;
 int main()
 {
-    char a('a');
-    cout << a << ' ' << (int)a << endl;
+    for (int i = 0;i < 256;i++)
+    {
+        printf("%d    ",i);
+        printf("%c\n",i);
+    }
     return 0;
 }
