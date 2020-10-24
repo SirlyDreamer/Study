@@ -62,6 +62,7 @@ typedef struct _iobuf FILE;
 ```
 通过typedef定义了 文件类型 的别名： “FILE”
 ## 3.文件访问函数
+----
 ` FILE *fopen( const char *filename, const char *mode ); `  
 打开文件，其中filename指定打开的文件名，mode指定文件打开的方式
 
@@ -79,6 +80,8 @@ typedef struct _iobuf FILE;
 |a(b)+|打开一个用于读/写的文本(二进制)文件|写到结尾|创建新文件|	
 
 * 标签  `b`  只在Windows操作系统上生效
+
+----
 
 `int fclose( FILE *stream ); `
 
@@ -98,6 +101,8 @@ typedef struct _iobuf FILE;
 |size|每个对象的字节大小|
 |count|要读取的对象数|
 |stream|读取来源的输入文件流|
+
+----
 
 `int fscanf ( FILE * stream, const char * format, ... );`
 
