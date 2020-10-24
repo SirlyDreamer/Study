@@ -62,11 +62,15 @@ typedef struct _iobuf FILE;
 ```
 通过typedef定义了 文件类型 的别名： “FILE”
 ## 3.文件访问函数
-----
-` FILE *fopen( const char *filename, const char *mode ); `  
-打开文件，其中filename指定打开的文件名，mode指定文件打开的方式
+#### ` FILE *fopen( const char *filename, const char *mode ); `  
+打开文件
 
-`fopen()`的返回值：
+|参数|作用|
+|:-:|-|
+|filename|指定打开的文件名|
+|mode|指定文件的打开方式|
+
+返回值：
 
 成功时，返回指向新文件流的指针。错误时，返回空指针。
 
@@ -83,27 +87,70 @@ typedef struct _iobuf FILE;
 
 ----
 
-`int fclose( FILE *stream ); `
+#### `int fclose( FILE *stream ); `
 
-关闭指定的文件流，其中`stream`指针指向目标文件流
+关闭与文件流关联的文件
+
+|参数|作用|
+|:-:|-|
+|stream|指向目标文件流的指针|
+
+返回值：
 
 成功时返回`0`，失败时返回`EOF`
 
-若在`fclose`返回后使用指针`stream`的值则行为未定义
+* 若在`fclose`返回后使用指针`stream`的值则行为未定义
 
-`size_t fread(void *restrict buffer,size_t size,size_t count,FILE *restrict stream);`
+#### `size_t fread(void *restrict buffer,size_t size,size_t count,FILE *restrict stream);`
 
-从给定输入流`stream`读取至多`count`个对象到数组`buffer`中
+从文件流中读取数据块
 
 |参数|作用|
-|-|-|
-|buffer|指向要读取的数组中首个对象的指针|
+|:-:|-|
+|buffer|指定存放读取内容的数组|
 |size|每个对象的字节大小|
 |count|要读取的对象数|
 |stream|读取来源的输入文件流|
 
-----
+返回值:
 
-`int fscanf ( FILE * stream, const char * format, ... );`
+成功时返回成功读取的对象数，若返回值小于count则代表发生错误
 
+#### `size_t fwrite ( const void * ptr, size_t size, size_t count, FILE * stream );`
+
+向文件流中写入数据块
+
+|参数|作用|
+|:-:|-|
+|ptr|指定存放有写入内容的数组|
+|size|每个对象的字节大小|
+|count|要写入的对象数|
+|stream|写入目标的输入文件流|
+
+返回值:
+
+成功时返回成功写入的对象数，若返回值小于count则代表发生错误
+
+#### `int fscanf ( FILE * stream, const char * format, ... );`
 从流中读取数据，并根据参数格式将它们存储到其他参数指向的位置。
+
+|参数|作用|
+|:-:|-|
+|stream|指向文件流的指针|
+|format|指定格式化的格式|
+
+返回值:
+
+成功则返回成功读取参数的个数，失败则返回EOF
+
+#### `int fprintf ( FILE * stream, const char * format, ... );`
+向文件流中写入格式化的数据
+
+|参数|作用|
+|:-:|-|
+|stream|指向文件流的指针|
+|format|指定格式化的格式|
+
+返回值:
+
+成功则返回成功写入参数的个数，失败则返回EOF
