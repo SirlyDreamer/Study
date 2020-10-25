@@ -2,5 +2,6 @@
 using namespace std;
 int main()
 {
-    FILE originalFile = 
+    FILE originalFile = fopen("./config.txt","w+");
+
 }
