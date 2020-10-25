@@ -3,13 +3,13 @@
 
 using namespace std;
 
-string compress(char* str)
+string compress(const char* str)
 {
     if (strlen(str) == 0)
-        return;
-
+        return "";
+        
     char compressedString[65535] = {0};
-    char *point = str;
+    char *point = (char*)str;
     char current('\0');
     int num(0);
     int index(0);
