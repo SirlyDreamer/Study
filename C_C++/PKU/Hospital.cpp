@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int patient[20] = {0};
-//快速排序模块
+
 void swap(int *pa,int *pb)
 {
     int t = *pa;
@@ -32,35 +32,30 @@ void quicksort(int left,int right)
     quicksort (i+1,right);
     return;
 }
-//治疗病人操作
-int treatPatient(int currentTime,int index)
-{
-    if(patient[index] >= currentTime)
-        currentTime = patient[index] + 10;
-    else
-        currentTime += 10;
-    if (currentTime >= 180)
-        return -1;
-    return currentTime;
-}
+
 int main()
 {
     int n(0);
     cin >> n;
     for(int i(0);i < n;i++)
-    {
         cin >> patient[i];
-    }
+    
     quicksort(0,n-1);
-    int currentTime(60),treatedPatient(0),index(0);
-    while(currentTime <= 170  && index != n)
+    
+    int currentTime(60),treatedPatient(0);
+    while(currentTime <= 170  && treatedPatient != n)
     {
-        currentTime = treatPatient(currentTime,index);
-        if (currentTime == -1)
+        if(patient[treatedPatient+1] >= currentTime)
+            currentTime = patient[treatedPatient+1] + 10;
+        else
+            currentTime += 10;
+        
+        if (currentTime > 180)
             break;
+        
         treatedPatient++;
-        index++;
     }
+
     cout << treatedPatient << endl;
     return 0;
 }
