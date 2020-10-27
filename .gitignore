@@ -31,5 +31,23 @@
 *.out
 *.app
 
+# not a code
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.pdf
+*.jpg
+*.png
+*.jpeg
+*.zip
+*.rar
+*.7z
+*.txt
+*.csv
+*.html
+
 /.vscode
 Codes.code-workspace
