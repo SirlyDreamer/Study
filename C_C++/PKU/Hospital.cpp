@@ -45,8 +45,8 @@ int main()
     int currentTime(60),treatedPatient(0);
     while(currentTime <= 170  && treatedPatient != n)
     {
-        if(patient[treatedPatient+1] >= currentTime)
-            currentTime = patient[treatedPatient+1] + 10;
+        if(patient[treatedPatient] >= currentTime)
+            currentTime = patient[treatedPatient] + 10;
         else
             currentTime += 10;
         
