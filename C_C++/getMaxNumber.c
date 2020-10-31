@@ -27,20 +27,3 @@ int max (int x,int y,int z)
         else
             return z;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

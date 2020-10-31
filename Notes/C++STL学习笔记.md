@@ -5,7 +5,7 @@
 ## 1.STL容器
 ![STL 容器](https://oi-wiki.org/lang/csl/images/container1.png)
 ### vector 向量 `#include <vector>`
-动态数组，可以使用 `[]` 直接存储数据
+动态数组，可以使用 `[]` 直接存取数据
 
 |成员函数|功能说明|
 |:-:|-|
