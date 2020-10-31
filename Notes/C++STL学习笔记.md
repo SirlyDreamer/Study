@@ -5,6 +5,9 @@
 
 ### 顺序容器(Sequence Containers)
 ----
+### array 数组 `#include <array>`
+* 定长的顺序表，原生数组的再封装，以便于使用迭代器
+
 ### vector 向量 `#include <vector>`
 * 后端可高效增加元素的顺序表，等同于动态数组，可以直接使用 `[]` 访问数据
 
@@ -14,8 +17,11 @@
 ### list 列表 `#include <list>`
 * 可以沿双向遍历的链表
 
-顺序容器的成员函数
-----
+### forward_list 单向链表
+* 只能沿单方向遍历的链表
+
+#### 顺序容器的成员函数
+
 |Iterators|vector|deque|list|功能说明|
 |:-:|:-:|:-:|:-:|-|
 |`begin`|O|O|O|返回容器前端的迭代器|
@@ -76,6 +82,15 @@
 
 * 由 {key,value} 对组成的多重集合，允许键有相等情况的映射。
 
+### 无序容器(Unordered Containers)
+----
+### Unordered_set/Unordered_multiset 无序集合/无序多重集合
+* 与 set/multiset 的区别在与元素无序，只关心”元素是否存在“，使用哈希实现
 
+### Unordered_map/Unordered_multimap 无序映射/无序多重映射
+* 与 map/multimap 的区别在与键 (key) 无序，只关心 "键与值的对应关系"，使用哈希实现
+
+(说白了就是俩哈希表)
 
 ## 2.STL容器适配器
+### 
