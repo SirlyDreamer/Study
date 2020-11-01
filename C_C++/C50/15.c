@@ -1,7 +1,8 @@
 #include <stdio.h>
 int main()
 {
-    int T,string[1000];
+    int T;
+    char string[1000];
     scanf("%d",&T);
     for (int i = 0;i < T;i++)
         scanf("%d",&string[i]);
