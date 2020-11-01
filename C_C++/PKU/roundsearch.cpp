@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 int main()
@@ -26,6 +27,59 @@ int main()
         for(int i = down;i >= up;i--)
             cout << arr[i][left] << endl; 
         left++;
+    }
+    return 0;
+}
+*/
+#include <iostream>
+using namespace std;
+ int a[99][99] = { 0 };
+int main()
+{
+    bool flag = true;
+    int row, col, i1,i2;//i1是行 i2是列
+    cin >> row >> col;//row,i1是行 col,i2是列
+    for (i1 = 0; i1 < row; i1++)
+        for (i2 = 0; i2 < col; i2++)
+            cin >> a[i1][i2];
+    i1 = -1; i2 = -1;
+    int col1 = col, row1 = row, col2 = 0, row2 = 0;
+    while (flag == true)
+    {
+        i2++;i1++;
+        while (i2 < col1)
+        {
+            cout << a[i1][i2] << endl;
+            i2++;
+        }
+        col1--;
+
+        i1++;i2--;
+        while (i1 < row1)
+        {
+            cout << a[i1][i2] << endl;
+            i1++;
+        }
+        row1--;
+        
+        i1--;i2--;
+        while (i2 >= col2)
+        {
+            cout << a[i1][i2] << endl;
+            i2--;
+        }
+        col2++;
+
+        i1--;i2++;
+        while (i1 > row2)
+        {
+            cout << a[i1][i2] << endl;
+            i1--;
+        }
+        row2++;
+
+        if (col1 <= col2 || row1 <= row2)//结束
+            flag = false;
     }
     return 0;
 }
