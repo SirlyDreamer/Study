@@ -49,5 +49,6 @@
 *.csv
 *.html
 
+/C_C++/temp
 /.vscode
 Codes.code-workspace
