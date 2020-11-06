@@ -22,7 +22,6 @@ public:
 
         if ( digit%2 == 0 )
         {
-
             while(x != 0)
             {
                 if (index < digit/2)
