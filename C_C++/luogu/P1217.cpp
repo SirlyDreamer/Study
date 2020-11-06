@@ -2,6 +2,7 @@
 #include <stack>
 #include <cmath>
 #include <vector>
+#include <bitset>
 using namespace std;
 
 bool isPalindrome(int x)
@@ -50,12 +51,16 @@ bool isPalindrome(int x)
     }
 }
 
-int producePrimeNumber(int begin,int end,vector<int> *target)
+int producePrimeNumber(const int begin,const int end,vector<int> *target)
 {
     int count(0);
     bool flag(true);
+    bitset<10000000> PrimeNumber;
+    PrimeNumber.set();
     for (int i(begin);i <= end;i++)
     {
+        if (PrimeNumber[i] == false)
+            continue;
         double limit = sqrt(i);
         for (int j(2);j <= limit;j++)
         {
@@ -65,13 +70,13 @@ int producePrimeNumber(int begin,int end,vector<int> *target)
                 break;
             }
         }
-
         if (flag == true)
         {
             target->push_back(i);
+            for (int n(1);i*n < end;n++)
+                PrimeNumber.set((int)(i*n),false);
             count++;
         }
-
         flag = true;
     }
     return count;
