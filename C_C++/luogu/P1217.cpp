@@ -55,14 +55,13 @@ int producePrimeNumber(const int begin,const int end,vector<int> *target)
 {
     int count(0);
     bool flag(true);
-    bitset<10000000> PrimeNumber;
+    bitset<100000000> PrimeNumber;
     PrimeNumber.set();
-    for (int i(begin);i <= end;i++)
+    for (int i(5);i*i <= end;i++)
     {
-        if (PrimeNumber[i] == false)
+        if (PrimeNumber.test(i-1) == false)
             continue;
-        double limit = sqrt(i);
-        for (int j(2);j <= limit;j++)
+        for (int j(2);j*j <= i;j++)
         {
             if (i % j == 0)
             {
@@ -71,13 +70,17 @@ int producePrimeNumber(const int begin,const int end,vector<int> *target)
             }
         }
         if (flag == true)
+            for (int n(i*i);n < end;n+=i)
+                PrimeNumber.set(n-1,false);
+        flag = true;
+    }
+    for (int i(begin);i < end;i++)
+    {
+        if (PrimeNumber.test(i-1))
         {
             target->push_back(i);
-            for (int n(1);i*n < end;n++)
-                PrimeNumber.set((int)(i*n),false);
             count++;
         }
-        flag = true;
     }
     return count;
 }
