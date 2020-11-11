@@ -2,9 +2,9 @@
 #include <string>
 using namespace std;
 
-struct str{
-    string str = "";
-    int time = 0;
+struct number{
+    string str;
+    int time;
 };
 
 int main()
@@ -13,13 +13,14 @@ int main()
     char sign(0);
     string temp;
     cin >> N;
-    str* numbers = new str[N];
+    number* numbers = new number[N];
     for (int i(0);i<N;i++)
     {
         cin >> temp;
         //字符串处理：删除前导0
         sign = temp.at(0);
-        temp.erase(0,1); //先删除符号
+        if (sign == '+' || sign == '-')
+            temp.erase(0,1); //先删除符号
         temp.erase(0,temp.find_first_not_of('0'));  //删除所有的0
         if (temp.empty())
             temp = "0";
@@ -29,7 +30,7 @@ int main()
         if (num == 0)
         {
             numbers[num].str = temp;
-            numbers[num].time ++;
+            numbers[num].time = 1;
             num++;
         }
         for (int j(0);j < num;j++)
@@ -42,7 +43,7 @@ int main()
             if (j == num-1)
             {
                 numbers[num].str = temp;
-                numbers[num].time ++;
+                numbers[num].time = 1;
                 num++;
             }
         }
