@@ -1,6 +1,6 @@
 # C语言的文件读写解析操作
 ## 0.格式化输入输出
-### `printf``sprintf``fprintf`的格式化输出
+### `printf` `sprintf` `fprintf`的格式化输出
 `%[flags][width][.prec][类型修饰]type`
 |Flag|含义|width 或 prec|含义|类型修饰|含义|
 |:-:|-|:-:|-|:-:|-|
@@ -20,7 +20,7 @@
 |f或F|float, 6|p|指针|
 |e或E|指数|n|读入/写出的个数|
 
-### `scanf``sscanf``fscanf`的格式化输入
+### `scanf` `sscanf` `fscanf`的格式化输入
 `%[flag]type`
 |flag|含义|flag|含义|
 |:-:|-|:-:|-|
