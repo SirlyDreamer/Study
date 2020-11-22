@@ -1,8 +1,9 @@
 #include <iostream>
-#include <cstdio>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cstdio>
+#include <iomanip>
 using namespace std;
 
 struct user
@@ -12,7 +13,7 @@ struct user
 	int Penalty;
 };
 
-bool cmp(struct user s1,struct user s2)
+bool cmp(struct user s1, struct user s2)
 {
 	if (s1.Score > s2.Score)
 		return true;
@@ -28,9 +29,9 @@ bool cmp(struct user s1,struct user s2)
 		return false;
 }
 
-struct user process(string* data,int n,int m)
+struct user process(string* data, int n, int m)
 {
-	int a(0),b(0);
+	int a(0), b(0);
 	struct user result;
 	result.name = data[0];
 	result.Score = 0;
@@ -39,9 +40,9 @@ struct user process(string* data,int n,int m)
 	{
 		if (data[i].find('(') != data[i].npos)
 		{
-			sscanf(data[i].c_str(),"%d(%d)",&a,&b);
-			result.Score ++;
-			result.Penalty += (a+m*b);
+			sscanf(data[i].c_str(), "%d(%d)", &a, &b);
+			result.Score++;
+			result.Penalty += (a + m * b);
 		}
 		else
 		{
@@ -58,24 +59,25 @@ struct user process(string* data,int n,int m)
 
 int main()
 {
-	int n(0),m(0);
+	int n(0), m(0);
 	vector<struct user> users;
 	cin >> n >> m;
-	string* user = new string[n+1];
+	string* user = new string[n + 1];
 	while (cin >> user[0])
 	{
 		for (int i = 0; i < n; ++i)
 		{
-			cin >> user[i+1];
+			cin >> user[i + 1];
 		}
-		users.push_back(process(user,n,m));
+		users.push_back(process(user, n, m));
 	}
-	sort(users.begin(),users.end(),cmp);
+	sort(users.begin(), users.end(), cmp);
 	vector<struct user>::iterator iter = users.begin();
-	while(iter < users.end())
+	while (iter < users.end())
 	{
-		printf("%-10s% 2d% 4d",iter->name.c_str(),iter->Score,iter->Penalty);
-		if (users.end() != ++iter )
+		printf("%-10s %2d %4d",iter->name.c_str(),iter->Score,iter->Penalty);
+		iter++;
+		if (iter != users.end())
 			printf("\n");
 	}
 	return 0;

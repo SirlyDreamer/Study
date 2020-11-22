@@ -1,4 +1,7 @@
 #include <iostream>
 using namespace std;
 
-struct 
+struct user
+{
+    
+};
