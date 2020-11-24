@@ -37,11 +37,21 @@ int main()
             dis = -1;
         else
         {
-            for(vector<int>::iterator iter = places->begin();iter < places->end();iter++)
+            vector<int>::iterator left = places->begin();
+            vector<int>::iterator right = places->end();
+            vector<int>::iterator iter = left + (right - left)/2;
+            while(left < right && *iter == i)
             {
-                if (*iter != i && dis > abs(*iter - i))
-                    dis = abs(*iter - i);
+                if (*iter > i)
+                    right = iter;
+                else if(*iter < i)
+                    left = iter + 1;
+                iter = left + (right - left)/2;
             }
+            if (*iter-*(iter-1) > *(iter+1)-*iter)
+                dis = *(iter+1)-*iter;
+            else
+                dis = *iter-*(iter-1);
         }
         cout << dis << ' ';
     }
