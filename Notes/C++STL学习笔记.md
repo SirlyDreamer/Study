@@ -5,16 +5,25 @@
 
 ### 顺序容器(Sequence Containers)
 ----
-### array 数组 `#include <array>`
+### array 数组 
+
+`#include <array>`
+
 * 定长的顺序表，原生数组的再封装，以便于使用迭代器
 
-### vector 向量 `#include <vector>`
+### vector 向量 
+
+ `#include <vector>`
+
 * 后端可高效增加元素的顺序表，等同于动态数组，可以直接使用 `[]` 访问数据
 
-### deque 双端队列 `#include <deque>`
+### deque 双端队列 
+`#include <deque>`
 * 双端都可高效增加元素的顺序表
 
-### list 列表 `#include <list>`
+### list 列表 
+`#include <list>`
+
 * 可以沿双向遍历的链表
 
 ### forward_list 单向链表
@@ -39,9 +48,10 @@
 |`max_size`|O|O|O|返回容器理论上可存储元素的最大个数（取决于索引的数据类型）|
 |`resize`|O|O|O|改变容器的大小（分配内存并初始化，改变元素数量）|
 |`capacity`|O|X|X|返回容器实际上可存储元素的最大个数（取决于容器当前可用的内存大小）|
-|`empty`|O|O|O|检测容器是否为空。若容器为空，返回 true，否则返回 false 
-|`reserve`|O|X|O|改变容器的大小（仅分配内存而不初始化，不改变元素数量）|
-|`shrink_to_fit`|O|O|X|将容器从曾经最大的容量减少到它现在需要的容量|
+| `empty` |O|O| O| 检测容器是否为空。若容器为空，返回 true，否则返回 false |
+| `reserve` | O    | X    | O    | 改变容器的大小（仅分配内存而不初始化，不改变元素数量） |
+| `shrink_to_fit` | O    | O    | X    | 将容器从曾经最大的容量减少到它现在需要的容量 |
+
 
 |Element access|vector|deque|list|功能说明|
 |:-:|:-:|:-:|:-:|-|
@@ -66,18 +76,17 @@
 |`emplace_front`|X|O|O|构造并向容器前端添加元素|
 |`emplace_back`|O|O|O|构造并向容器后端添加元素|
 
-|Operations|vector|deque|list|功能说明|
-|:-:|:-:|:-:|:-:|-|
-|`splice`|
-
 ### 关联容器(Associative Containers)
 ----
-### Set/Multiset 集合/多重集合 `#include <set>`
+### Set/Multiset 集合/多重集合 
+`#include <set>`
+
 * 集合是用以有序地存储互异元素的容器,其中的对象已排序。
 
 * 多重集合是用以有序地存储元素的容器，其允许存在相等的元素。
 
-### Map/Multimap 映射/多重映射 `#include <map>`
+### Map/Multimap 映射/多重映射 
+`#include <map>`
 * 由 {key,value} 对组成的集合，以键大小关系进行排列。
 
 * 由 {key,value} 对组成的多重集合，允许键有相等情况的映射。
@@ -96,5 +105,25 @@
 
 ## 2.STL容器适配器
 ### Stack 栈
+
+`#include <stack>`
+
+* LIFO的数据结构
+
+| 成员函数  | 功能说明                                             |
+| :-------: | ---------------------------------------------------- |
+|  `empty`  | 验证栈是否为空（若为空则返回`true`,否则返回`false`） |
+|  `size`   | 返回栈元素个数                                       |
+|   `top`   | 返回栈顶元素                                         |
+|  `push`   | 向栈中添加元素                                       |
+| `emplace` | 构造并向栈中添加元素                                 |
+|   `pop`   | 删除栈顶元素                                         |
+|  `swap`   | 交换两个栈中的元素（参数为目标栈）                   |
+
 ### Queue 队列
-### 
+`#include <queue>`
+
+* FIFO的数据结构
+
+
+
