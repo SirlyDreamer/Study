@@ -13,10 +13,10 @@ struct node* tail = nullptr;
 void addNode(int data)
 {
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
-	if (newnode == nullptr)
-	{
+    if (newnode == nullptr)
+    {
         cout << "Allocate Memory Failed" << endl;
-	}
+    }
     else
     {
         newnode->data = data;
