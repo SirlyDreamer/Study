@@ -10,10 +10,8 @@ void mergeSort(int head, int tail, int* arr)
 	mergeSort(middle + 1, tail, arr);
 	int length = tail - head + 1;
 	int* temp = new int[length];
-	int* ptemp;
-	ptemp = temp;
+	int* ptemp(temp);
 	int *parr1(&arr[head]), *parr2(&arr[middle + 1]);
-
 	while (parr1 <= &arr[middle] && parr2 <= &arr[tail])
 	{
 		if (*parr1 <= *parr2)
@@ -25,7 +23,6 @@ void mergeSort(int head, int tail, int* arr)
 		*ptemp++ = *parr1++;
 	while (parr2 <= &arr[tail])
 		*ptemp++ = *parr2++;
-
 	for (int i = 0; i < length; i++)
 		arr[head + i] = temp[i];
 	delete[] temp;
