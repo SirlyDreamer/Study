@@ -19,7 +19,10 @@ class Solution {
 public:
     LinkedListToint(ListNode* )
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-
+        ListNode* result;
+        result->val = 0;
+        result->next = nullptr;
+        while ()
     }
 };
 // @lc code=end

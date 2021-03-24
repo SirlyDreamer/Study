@@ -1,42 +1,4 @@
 # C语言的文件读写解析操作
-## 0.格式化输入输出
-### `printf` `sprintf` `fprintf`的格式化输出
-`%[flags][width][.prec][类型修饰]type`
-|Flag|含义|width 或 prec|含义|类型修饰|含义|
-|:-:|-|:-:|-|:-:|-|
-|\-|左对⻬|(number)|输出的最小长度(字符数)|hh|单个字节|
-|\+|在前⾯面放\+或\-|\*|""后对应的参数是字符数|h|short|
-|(space)|正数留空|.(number)|小数点后的位数|l|long|
-|0|0填充|.*|""后对应的参数是小数点后的位数|ll|long long|
-|||||L|long double|
-
-|type|用于|type|用于|
-|:-:|-|:-:|-|
-|i或d|int|g|float|
-|u|unsigned int|G|float|
-|o|八进制|a或A|十六进制浮点|
-|x|十六进制|c|char|
-|X|字母⼤写的⼗六进制|s|字符串|
-|f或F|float, 6|p|指针|
-|e或E|指数|n|读入/写出的个数|
-
-### `scanf` `sscanf` `fscanf`的格式化输入
-`%[flag]type`
-|flag|含义|flag|含义|
-|:-:|-|:-:|-|
-|\*|跳过|l|long, double|
-|数字|最大字符数|ll|long long|
-|hh|char|L|long double|
-|h|short|
-
-
-|type|用于|type|用于|
-|:-:|-|:-:|-|
-|d|int|s|字符串|
-|i|整数，可能为十六进制或八进制|[...]|所允许的字符|
-|u|unsigned int|p|指针|
-|o|八进制|a,e,f,g|float|
-|x|十六进制|c|char|
 
 ## 1.输出重定向
 ``` powershell
@@ -81,7 +43,7 @@ typedef struct _iobuf FILE;
 |a(b)|附加到一个文本(二进制)文件|写到结尾|创建新文件|
 |r(b)+|打开一个用于读/写的文本(二进制)文件|从头读|错误|
 |w(b)+|创建一个用于读/写的文本(二进制)文件|销毁内容|创建新文件|
-|a(b)+|打开一个用于读/写的文本(二进制)文件|写到结尾|创建新文件|	
+|a(b)+|打开一个用于读/写的文本(二进制)文件|写到结尾|创建新文件|
 
 * 标签  `b`  只在Windows操作系统上生效
 
